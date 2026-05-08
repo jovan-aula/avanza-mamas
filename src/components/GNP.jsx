@@ -148,16 +148,8 @@ export default function GNP() {
           </div>
           <button
             onClick={() => document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" })}
-            style={{
-              background: "white", border: "none", borderRadius: 50,
-              padding: "14px 32px", cursor: "pointer",
-              fontFamily: "Montserrat, sans-serif", fontWeight: 800,
-              fontSize: 14, letterSpacing: 0.5, textTransform: "uppercase",
-              color: "#7C3AED", flexShrink: 0,
-              transition: "transform 0.2s ease",
-            }}
-            onMouseEnter={e => e.currentTarget.style.transform = "scale(1.03)"}
-            onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+            className="btn-white"
+            style={{ flexShrink: 0 }}
           >
             Quiero unirme
           </button>

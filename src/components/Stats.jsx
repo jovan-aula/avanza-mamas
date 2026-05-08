@@ -49,7 +49,7 @@ export default function Stats() {
             fontFamily: "Montserrat, sans-serif", fontWeight: 700,
             fontSize: 11, letterSpacing: 3, textTransform: "uppercase", color: "white",
           }}>
-            Por qué elegir esto
+            Por qué ser agente de seguros
           </div>
           <h2 style={{
             fontFamily: "Montserrat, sans-serif", fontWeight: 900,

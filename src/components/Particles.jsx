@@ -8,7 +8,6 @@ export default function Particles() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     let animationId;
-    let particles = [];
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -17,58 +16,30 @@ export default function Particles() {
     resize();
     window.addEventListener("resize", resize);
 
-    const symbols = ["·", "–", "×", "+", "◦", "∘", "⟡"];
-    const colors = ["#FF4B7C", "#A855F7", "#F9A8D4", "#FFD700", "#ffffff"];
+    const colors = ["rgba(124,58,237,0.5)", "rgba(219,39,119,0.5)", "rgba(236,72,153,0.4)", "rgba(249,168,212,0.35)"];
 
-    class Particle {
-      constructor() {
-        this.reset();
-      }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height + 20;
-        this.size = Math.random() * 14 + 6;
-        this.speedY = Math.random() * 1.5 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 1;
-        this.opacity = Math.random() * 0.6 + 0.2;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-        this.symbol = symbols[Math.floor(Math.random() * symbols.length)];
-        this.rotation = Math.random() * Math.PI * 2;
-        this.rotationSpeed = (Math.random() - 0.5) * 0.02;
-        this.life = 0;
-        this.maxLife = Math.random() * 300 + 200;
-      }
-      update() {
-        this.y -= this.speedY;
-        this.x += this.speedX;
-        this.rotation += this.rotationSpeed;
-        this.life++;
-        if (this.life > this.maxLife || this.y < -20) this.reset();
-      }
-      draw() {
-        ctx.save();
-        ctx.globalAlpha = this.opacity * (1 - this.life / this.maxLife);
-        ctx.fillStyle = this.color;
-        ctx.font = `${this.size}px serif`;
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.rotation);
-        ctx.fillText(this.symbol, -this.size / 2, this.size / 2);
-        ctx.restore();
-      }
-    }
-
-    for (let i = 0; i < 60; i++) {
-      const p = new Particle();
-      p.y = Math.random() * canvas.height;
-      p.life = Math.random() * p.maxLife;
-      particles.push(p);
-    }
+    const particles = Array.from({ length: 25 }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      r: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 0.3,
+      dy: -Math.random() * 0.4 - 0.1,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      opacity: Math.random() * 0.5 + 0.2,
+    }));
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p) => {
-        p.update();
-        p.draw();
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
+        if (p.x < -10) p.x = canvas.width + 10;
+        if (p.x > canvas.width + 10) p.x = -10;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
       });
       animationId = requestAnimationFrame(animate);
     };
@@ -80,11 +51,5 @@ export default function Particles() {
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="particles-bg"
-      style={{ pointerEvents: "none" }}
-    />
-  );
+  return <canvas ref={canvasRef} className="particles-bg" />;
 }

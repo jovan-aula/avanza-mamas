@@ -1,21 +1,25 @@
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata = {
-  title: "Avanza Capital — Mamás que Inspiran, Mamás que Triunfan",
-  description:
-    "Este Mayo, conviértete en agente de seguros GNP y construye la libertad financiera que tú y tu familia merecen.",
-  openGraph: {
-    title: "Avanza Capital — Mamás que Inspiran, Mamás que Triunfan",
-    description:
-      "Únete a la red de agentes GNP más poderosa de Tijuana y Ensenada.",
-    type: "website",
-  },
+  title: "Avanza Capital — #PowerfulMoms",
+  description: "Conviértete en agente de seguros GNP y construye la libertad financiera que tú y tu familia merecen.",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <head>
+        <meta name="theme-color" content="#3B0764" />
+      </head>
+      <body>
+        {children}
+        <Script
+          src="https://crm.avanzacapital.mx/js/form_embed.js"
+          strategy="lazyOnload"
+        />
+      </body>
     </html>
   );
 }
