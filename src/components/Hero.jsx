@@ -3,12 +3,12 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 const strips = [
-  { val: "Horarios flexibles", icon: "◎" },
-  { val: "$60,000+ MXN / mes", icon: "◎" },
-  { val: "Capacitación incluida", icon: "◎" },
-  { val: "Mentoría personalizada", icon: "◎" },
-  { val: "Sin experiencia previa", icon: "◎" },
-  { val: "Red de +200 agentes", icon: "◎" },
+  "Horarios 100% flexibles",
+  "$60,000+ MXN al mes",
+  "Capacitación incluida",
+  "Mentoría personalizada",
+  "Sin experiencia previa",
+  "Red de +200 agentes",
 ];
 
 export default function Hero() {
@@ -19,222 +19,197 @@ export default function Hero() {
     if (!el) return;
     el.style.opacity = "0";
     el.style.transform = "translateY(20px)";
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        el.style.transition = "opacity 0.85s ease, transform 0.85s ease";
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
-      }, 150);
-    });
+    setTimeout(() => {
+      el.style.transition = "opacity 0.9s ease, transform 0.9s ease";
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    }, 200);
   }, []);
 
   const scrollToForm = () =>
     document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="section-dark" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", position: "relative", zIndex: 1, overflow: "hidden" }}>
+    <section className="section-dark" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
       {/* Main content */}
-      <div style={{ flex: 1, display: "flex", alignItems: "center", padding: "110px 28px 48px" }}>
-        <div style={{ maxWidth: 1160, margin: "0 auto", width: "100%", display: "flex", alignItems: "center", gap: 40, flexWrap: "wrap" }}>
+      <div style={{ flex: 1, display: "flex", alignItems: "center", padding: "100px 40px 40px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%" }}>
+          <div className="hero-main" style={{ alignItems: "center" }}>
 
-          {/* LEFT */}
-          <div ref={leftRef} style={{ flex: "1 1 420px", minWidth: 0 }}>
-            <div style={{
-              display: "inline-block",
-              background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)",
-              borderRadius: 50, padding: "6px 18px", marginBottom: 24,
-              fontFamily: "Montserrat, sans-serif", fontWeight: 700,
-              fontSize: 11, letterSpacing: 3, textTransform: "uppercase", color: "#F9A8D4",
-            }}>
-              #PowerfulMoms
-            </div>
-
-            <h1 style={{
-              fontFamily: "Montserrat, sans-serif", fontWeight: 900,
-              fontSize: "clamp(2.2rem, 5.5vw, 4.2rem)", lineHeight: 1.08,
-              marginBottom: 22, color: "white",
-            }}>
-              Se escribe{" "}
-              <em style={{ color: "rgba(255,255,255,0.38)", fontStyle: "italic" }}>mamá,</em>
-              <br />pero se pronuncia
-              <br /><span className="gradient-text-light">Powerful Mom.</span>
-            </h1>
-
-            <p style={{
-              fontFamily: "Inter, sans-serif", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)",
-              color: "rgba(255,255,255,0.65)", lineHeight: 1.8, marginBottom: 10, maxWidth: 500,
-            }}>
-              Eres mamá, eres profesionista y quieres generar ingresos{" "}
-              <strong style={{ color: "white" }}>sin descuidar a tu familia.</strong>
-            </p>
-            <p style={{
-              fontFamily: "Inter, sans-serif", fontSize: "clamp(0.88rem, 1.4vw, 1rem)",
-              color: "rgba(255,255,255,0.48)", lineHeight: 1.75, marginBottom: 32, maxWidth: 480,
-            }}>
-              Conviértete en agente GNP —{" "}
-              <span style={{ color: "#F9A8D4", fontWeight: 600 }}>la 2ª carrera mejor pagada de México</span>{" "}
-              — con horarios flexibles y sin límite de ingresos.
-            </p>
-
-            {/* Stat pills */}
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 36 }}>
-              {[
-                { val: "$60K+", label: "al mes" },
-                { val: "3 de 5", label: "seguros GNP" },
-                { val: "#2", label: "mejor pagada" },
-              ].map(s => (
-                <div key={s.val} style={{
-                  background: "rgba(255,255,255,0.09)", border: "1px solid rgba(255,255,255,0.15)",
-                  borderRadius: 10, padding: "8px 14px", display: "flex", alignItems: "center", gap: 7,
-                }}>
-                  <span style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 900, fontSize: "0.95rem", color: "#F9A8D4" }}>{s.val}</span>
-                  <span style={{ fontFamily: "Inter, sans-serif", fontSize: "0.7rem", color: "rgba(255,255,255,0.38)" }}>{s.label}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* CTAs */}
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <button onClick={scrollToForm} className="btn-cta" style={{
-                padding: "16px 32px", borderRadius: 50, border: "none", cursor: "pointer",
-                fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: 14,
-                color: "white", letterSpacing: 0.5, textTransform: "uppercase",
-              }}>
-                Quiero ser Powerful Mom
-              </button>
-              <button onClick={scrollToForm} className="btn-outline">
-                Conocer más
-              </button>
-            </div>
-          </div>
-
-          {/* RIGHT — Circular image perfectly contained */}
-          <div style={{
-            flex: "1 1 300px", display: "flex",
-            alignItems: "center", justifyContent: "center",
-          }}>
-            {/* Outer wrapper that contains ALL rings + image */}
-            <div style={{
-              position: "relative",
-              width: 380, height: 380,
-              flexShrink: 0,
-            }}>
-              {/* Rotating gradient ring — sized to fit within wrapper */}
-              <svg
-                style={{
-                  position: "absolute", top: 0, left: 0,
-                  width: "100%", height: "100%",
-                  animation: "rotate-ring 7s linear infinite",
-                  willChange: "transform",
-                }}
-                viewBox="0 0 380 380"
-              >
-                <defs>
-                  <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%"   stopColor="#7C3AED" />
-                    <stop offset="33%"  stopColor="#A21CAF" />
-                    <stop offset="66%"  stopColor="#DB2777" />
-                    <stop offset="100%" stopColor="#EC4899" />
-                  </linearGradient>
-                </defs>
-                <circle cx="190" cy="190" r="182" fill="none"
-                  stroke="url(#ringGrad)" strokeWidth="3.5"
-                  strokeLinecap="round" strokeDasharray="240 960" />
-              </svg>
-
-              {/* Counter-rotating dashed ring */}
-              <svg
-                style={{
-                  position: "absolute", top: -16, left: -16,
-                  width: "calc(100% + 32px)", height: "calc(100% + 32px)",
-                  animation: "rotate-ring-r 14s linear infinite",
-                  willChange: "transform",
-                }}
-                viewBox="0 0 412 412"
-              >
-                <circle cx="206" cy="206" r="200" fill="none"
-                  stroke="rgba(249,168,212,0.18)" strokeWidth="1"
-                  strokeDasharray="6 12" strokeLinecap="round" />
-              </svg>
-
-              {/* Pulse rings */}
-              {[0, 1.2, 2.4].map(delay => (
-                <div key={delay} style={{
-                  position: "absolute",
-                  top: "50%", left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  width: "96%", height: "96%",
-                  borderRadius: "50%",
-                  border: "1px solid rgba(219,39,119,0.22)",
-                  animation: `pulse-ring 3.6s ease-out ${delay}s infinite`,
-                  pointerEvents: "none",
-                }} />
-              ))}
-
-              {/* Image — fills the wrapper with circular clip */}
+            {/* LEFT — Copy */}
+            <div className="hero-left" ref={leftRef}>
               <div style={{
-                position: "absolute",
-                top: "8%", left: "8%",
-                width: "84%", height: "84%",
-                borderRadius: "50%",
-                overflow: "hidden",
-                background: "linear-gradient(160deg, #6B21A8, #9D174D)",
-                animation: "float 6s ease-in-out infinite",
-                willChange: "transform",
+                display: "inline-block",
+                background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)",
+                borderRadius: 50, padding: "6px 16px", marginBottom: 24,
+                fontFamily: "Montserrat, sans-serif", fontWeight: 700,
+                fontSize: 11, letterSpacing: 3, textTransform: "uppercase", color: "#F9A8D4",
               }}>
-                <Image
-                  src="/assets/hero-mujer.png"
-                  alt="Powerful Mom"
-                  fill
-                  sizes="320px"
-                  style={{ objectFit: "cover", objectPosition: "center top" }}
-                  priority
-                />
+                #PowerfulMoms
+              </div>
+
+              <h1 style={{
+                fontFamily: "Montserrat, sans-serif", fontWeight: 900,
+                fontSize: "clamp(2rem, 5.5vw, 4rem)", lineHeight: 1.1,
+                marginBottom: 20, color: "white",
+              }}>
+                Se escribe{" "}
+                <em style={{ color: "rgba(255,255,255,0.38)", fontStyle: "italic" }}>mamá,</em>
+                <br />pero se pronuncia
+                <br /><span className="gradient-text-light">Powerful Mom.</span>
+              </h1>
+
+              <p style={{
+                fontFamily: "Inter, sans-serif", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)",
+                color: "rgba(255,255,255,0.65)", lineHeight: 1.8, marginBottom: 12,
+              }}>
+                Eres mamá, eres profesionista y quieres generar ingresos{" "}
+                <strong style={{ color: "white" }}>sin descuidar a tu familia.</strong>
+              </p>
+              <p style={{
+                fontFamily: "Inter, sans-serif", fontSize: "clamp(0.88rem, 1.4vw, 1rem)",
+                color: "rgba(255,255,255,0.48)", lineHeight: 1.75, marginBottom: 32,
+              }}>
+                Conviértete en agente GNP —{" "}
+                <span style={{ color: "#F9A8D4", fontWeight: 600 }}>la 2ª carrera mejor pagada de México</span>{" "}
+                — con horarios flexibles y sin límite de ingresos.
+              </p>
+
+              {/* Stat pills */}
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 32 }}>
+                {[
+                  { val: "$60K+", label: "al mes" },
+                  { val: "3 de 5", label: "seguros GNP" },
+                  { val: "#2", label: "mejor pagada" },
+                ].map(s => (
+                  <div key={s.val} style={{
+                    background: "rgba(255,255,255,0.09)", border: "1px solid rgba(255,255,255,0.15)",
+                    borderRadius: 10, padding: "8px 14px", display: "flex", alignItems: "center", gap: 6,
+                  }}>
+                    <span style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 900, fontSize: "0.9rem", color: "#F9A8D4" }}>{s.val}</span>
+                    <span style={{ fontFamily: "Inter, sans-serif", fontSize: "0.68rem", color: "rgba(255,255,255,0.38)" }}>{s.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTAs */}
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <button onClick={scrollToForm} className="btn-cta" style={{
+                  padding: "15px 30px", borderRadius: 50, border: "none", cursor: "pointer",
+                  fontFamily: "Montserrat, sans-serif", fontWeight: 800,
+                  fontSize: "clamp(12px, 1.4vw, 14px)",
+                  color: "white", letterSpacing: 0.5, textTransform: "uppercase",
+                }}>
+                  Quiero ser Powerful Mom
+                </button>
+                <button onClick={scrollToForm} className="btn-outline">
+                  Conocer más
+                </button>
+              </div>
+            </div>
+
+            {/* RIGHT — Imagen rectangular con anillo animado */}
+            <div className="hero-right">
+              <div style={{ position: "relative", width: "100%", maxWidth: 460 }}>
+
+                {/* Anillo gradiente giratorio — detrás de la imagen */}
+                <div style={{
+                  position: "absolute",
+                  inset: -6,
+                  borderRadius: 28,
+                  background: "conic-gradient(from 0deg, #7C3AED, #A21CAF, #DB2777, #EC4899, #DB2777, #A21CAF, #7C3AED)",
+                  animation: "rotate-ring 6s linear infinite",
+                  willChange: "transform",
+                  zIndex: 0,
+                }} />
+
+                {/* Anillo difuminado exterior */}
+                <div style={{
+                  position: "absolute",
+                  inset: -16,
+                  borderRadius: 34,
+                  border: "1.5px dashed rgba(249,168,212,0.2)",
+                  animation: "rotate-ring-r 12s linear infinite",
+                  willChange: "transform",
+                  zIndex: 0,
+                }} />
+
+                {/* Imagen rectangular */}
+                <div style={{
+                  position: "relative",
+                  borderRadius: 22,
+                  overflow: "hidden",
+                  zIndex: 1,
+                  lineHeight: 0,
+                  animation: "float 6s ease-in-out infinite",
+                  willChange: "transform",
+                  boxShadow: "0 24px 60px rgba(0,0,0,0.3)",
+                }}>
+                  <Image
+                    src="/assets/cabecera.png"
+                    alt="Powerful Mom"
+                    width={460}
+                    height={520}
+                    sizes="(max-width:640px) 90vw, (max-width:768px) 45vw, 460px"
+                    style={{ objectFit: "cover", objectPosition: "center top", width: "100%", height: "auto", display: "block" }}
+                    priority
+                  />
+                  {/* Glow overlay sutil */}
+                  <div style={{
+                    position: "absolute", inset: 0,
+                    background: "linear-gradient(to bottom, transparent 60%, rgba(59,7,100,0.4) 100%)",
+                    pointerEvents: "none",
+                  }} />
+                </div>
+
+                {/* Pulsos */}
+                {[0, 1.5].map(delay => (
+                  <div key={delay} style={{
+                    position: "absolute", inset: -24, borderRadius: 36,
+                    border: "1px solid rgba(219,39,119,0.18)",
+                    animation: `pulse-ring 4s ease-out ${delay}s infinite`,
+                    zIndex: 0, pointerEvents: "none",
+                  }} />
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom strip — "pestañas" de valores */}
+      {/* Marquee strip */}
       <div style={{
         borderTop: "1px solid rgba(255,255,255,0.08)",
-        background: "rgba(0,0,0,0.2)",
-        backdropFilter: "blur(10px)",
-        padding: "16px 28px",
-        overflow: "hidden",
+        background: "rgba(0,0,0,0.2)", backdropFilter: "blur(10px)",
+        padding: "14px 0", overflow: "hidden",
       }}>
         <div style={{
-          display: "flex",
-          gap: 0,
-          animation: "marquee 30s linear infinite",
-          whiteSpace: "nowrap",
-          width: "max-content",
+          display: "flex", animation: "marquee 28s linear infinite",
+          whiteSpace: "nowrap", width: "max-content",
         }}>
           {[...strips, ...strips].map((s, i) => (
             <div key={i} style={{
               display: "inline-flex", alignItems: "center", gap: 10,
-              padding: "0 32px",
-              borderRight: "1px solid rgba(255,255,255,0.1)",
+              padding: "0 28px", borderRight: "1px solid rgba(255,255,255,0.08)",
             }}>
-              <span style={{ color: "#EC4899", fontSize: 8 }}>◆</span>
+              <span style={{ color: "#EC4899", fontSize: 7 }}>◆</span>
               <span style={{
                 fontFamily: "Montserrat, sans-serif", fontWeight: 600,
-                fontSize: "0.78rem", color: "rgba(255,255,255,0.55)",
+                fontSize: "0.72rem", color: "rgba(255,255,255,0.5)",
                 letterSpacing: 1, textTransform: "uppercase",
-              }}>
-                {s.val}
-              </span>
+              }}>{s}</span>
             </div>
           ))}
         </div>
       </div>
 
       <style>{`
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @media (max-width:640px) {
+          .hero-main { padding: 0 !important; gap: 32px !important; }
+          .hero-left  { order: 2; }
+          .hero-right { order: 1; width: 100% !important; max-width: 300px; margin: 0 auto; }
         }
       `}</style>
     </section>

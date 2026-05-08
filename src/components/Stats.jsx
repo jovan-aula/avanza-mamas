@@ -32,20 +32,20 @@ export default function Stats() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setStarted(true); ref.current?.classList.add("visible"); } },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="section-white" style={{ padding: "96px 20px", position: "relative", zIndex: 1 }}>
+    <section className="section-white sec-pad">
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: 56 }}>
+        <div style={{ textAlign: "center", marginBottom: 48 }}>
           <div style={{
             display: "inline-block",
             background: "linear-gradient(135deg, #7C3AED, #DB2777)",
-            borderRadius: 50, padding: "6px 20px", marginBottom: 16,
+            borderRadius: 50, padding: "6px 20px", marginBottom: 14,
             fontFamily: "Montserrat, sans-serif", fontWeight: 700,
             fontSize: 11, letterSpacing: 3, textTransform: "uppercase", color: "white",
           }}>
@@ -53,16 +53,14 @@ export default function Stats() {
           </div>
           <h2 style={{
             fontFamily: "Montserrat, sans-serif", fontWeight: 900,
-            fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", color: "#1a0030",
+            fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)", color: "#1a0030",
           }}>
             Los números que{" "}
             <span className="gradient-text">lo dicen todo</span>
           </h2>
         </div>
 
-        <div ref={ref} className="reveal" style={{
-          display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20,
-        }}>
+        <div ref={ref} className="reveal stat-grid">
           {stats.map((s, i) => (
             <StatCard key={i} {...s} started={started} delay={i * 100} />
           ))}
@@ -72,36 +70,31 @@ export default function Stats() {
   );
 }
 
-function StatCard({ Icon, prefix, value, suffix, label, desc, color, started, delay }) {
+function StatCard({ Icon, prefix, value, suffix, label, desc, color, started }) {
   const count = useCountUp(value, 1800, started);
   return (
     <div className="glass-white" style={{
-      borderRadius: 20, padding: "36px 24px", textAlign: "center",
-      transition: `transform 0.3s ease, box-shadow 0.3s ease`,
+      borderRadius: 18, padding: "clamp(20px,3vw,36px) clamp(16px,2vw,24px)",
+      textAlign: "center", transition: "transform 0.3s ease, box-shadow 0.3s ease",
       cursor: "default",
     }}
-      onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = `0 20px 48px ${color}22`; }}
-      onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 8px 40px rgba(124,58,237,0.08)"; }}
+      onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = `0 20px 48px ${color}22`; }}
+      onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 32px rgba(124,58,237,0.08)"; }}
     >
       <div style={{
-        width: 48, height: 48, borderRadius: 14,
-        background: `${color}14`, border: `1px solid ${color}28`,
-        display: "flex", alignItems: "center", justifyContent: "center",
-        margin: "0 auto 16px",
+        width: 44, height: 44, borderRadius: 12,
+        background: `${color}12`, border: `1px solid ${color}28`,
+        display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 14px",
       }}>
-        <Icon size={22} color={color} />
+        <Icon size={20} color={color} />
       </div>
-      <div style={{
-        fontFamily: "Montserrat, sans-serif", fontWeight: 900,
-        fontSize: "clamp(2rem, 3.5vw, 2.8rem)", color,
-        lineHeight: 1, marginBottom: 10,
-      }}>
+      <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 900, fontSize: "clamp(1.8rem, 3vw, 2.8rem)", color, lineHeight: 1, marginBottom: 10 }}>
         {prefix}{count}{suffix}
       </div>
-      <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.88rem", color: "#1a0030", marginBottom: 6 }}>
+      <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "clamp(0.75rem, 1.2vw, 0.88rem)", color: "#1a0030", marginBottom: 6 }}>
         {label}
       </div>
-      <div style={{ fontFamily: "Inter, sans-serif", fontSize: "0.76rem", color: "rgba(26,0,48,0.4)", lineHeight: 1.5 }}>
+      <div style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(0.7rem, 1vw, 0.76rem)", color: "rgba(26,0,48,0.4)", lineHeight: 1.5 }}>
         {desc}
       </div>
     </div>
