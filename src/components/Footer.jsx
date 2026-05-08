@@ -50,13 +50,7 @@ export default function Footer() {
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "56px 28px 36px" }}>
 
         {/* === GRID PRINCIPAL 4 columnas === */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1.4fr 1fr 1fr 1.2fr",
-          gap: 40,
-          marginBottom: 48,
-          alignItems: "start",
-        }}>
+        <div className="footer-main">
 
           {/* Col 1 — Brand */}
           <div>
@@ -157,7 +151,7 @@ export default function Footer() {
           <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.7rem", color: "rgba(255,255,255,0.3)", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             Encuéntranos
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 }}>
+          <div className="footer-maps">
             {maps.map(({ city, src }) => (
               <div key={city}>
                 <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }}>
@@ -197,15 +191,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Mobile responsive */}
-      <style>{`
-        @media (max-width: 768px) {
-          .footer-grid { grid-template-columns: 1fr 1fr !important; }
-        }
-        @media (max-width: 480px) {
-          .footer-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </footer>
   );
 }
