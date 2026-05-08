@@ -60,7 +60,7 @@ export default function Footer() {
             <p style={{ color: "rgba(255,255,255,0.32)", fontFamily: "Inter, sans-serif", fontSize: "0.82rem", lineHeight: 1.75, marginBottom: 20 }}>
               La agencia GNP más poderosa de Tijuana y Ensenada. Formando a las Powerful Moms del sector asegurador.
             </p>
-            <div style={{ display: "flex", gap: 8 }}>
+            <div className="footer-social-row" style={{ display: "flex", gap: 8 }}>
               {social.map(s => (
                 <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer"
                   style={{
@@ -80,7 +80,7 @@ export default function Footer() {
           </div>
 
           {/* Col 2 — Navegación */}
-          <div>
+          <div className="footer-hide-mobile">
             <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.7rem", color: "rgba(255,255,255,0.32)", letterSpacing: 3, textTransform: "uppercase", marginBottom: 18 }}>
               Navegación
             </div>
@@ -121,7 +121,7 @@ export default function Footer() {
           </div>
 
           {/* Col 4 — Campaña + GNP */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <div className="footer-hide-mobile" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.7rem", color: "rgba(255,255,255,0.32)", letterSpacing: 3, textTransform: "uppercase", marginBottom: 4 }}>
               Campaña
             </div>
@@ -143,8 +143,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* === MAPAS — dentro del mismo contenedor, alineados === */}
-        <div style={{
+        {/* === MAPAS — oculto en mobile === */}
+        <div className="footer-hide-mobile" style={{
           borderTop: "1px solid rgba(255,255,255,0.06)",
           paddingTop: 32, marginBottom: 28,
         }}>

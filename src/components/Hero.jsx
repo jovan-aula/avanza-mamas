@@ -33,7 +33,7 @@ export default function Hero() {
     <section className="section-dark" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
       {/* Main content */}
-      <div style={{ flex: 1, display: "flex", alignItems: "center", padding: "100px 40px 40px" }}>
+      <div className="hero-content-pad" style={{ flex: 1, display: "flex", alignItems: "center", padding: "100px 40px 40px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%" }}>
           <div className="hero-main" style={{ alignItems: "center" }}>
 
@@ -113,26 +113,16 @@ export default function Hero() {
             <div className="hero-right">
               <div style={{ position: "relative", width: "100%", maxWidth: 460 }}>
 
-                {/* Anillo gradiente giratorio — detrás de la imagen */}
+                {/* Anillo gradiente giratorio — sutil */}
                 <div style={{
                   position: "absolute",
-                  inset: -6,
-                  borderRadius: 28,
+                  inset: -3,
+                  borderRadius: 26,
                   background: "conic-gradient(from 0deg, #7C3AED, #A21CAF, #DB2777, #EC4899, #DB2777, #A21CAF, #7C3AED)",
-                  animation: "rotate-ring 6s linear infinite",
+                  animation: "rotate-ring 16s linear infinite",
                   willChange: "transform",
                   zIndex: 0,
-                }} />
-
-                {/* Anillo difuminado exterior */}
-                <div style={{
-                  position: "absolute",
-                  inset: -16,
-                  borderRadius: 34,
-                  border: "1.5px dashed rgba(249,168,212,0.2)",
-                  animation: "rotate-ring-r 12s linear infinite",
-                  willChange: "transform",
-                  zIndex: 0,
+                  opacity: 0.75,
                 }} />
 
                 {/* Imagen rectangular */}
@@ -142,36 +132,24 @@ export default function Hero() {
                   overflow: "hidden",
                   zIndex: 1,
                   lineHeight: 0,
-                  animation: "float 6s ease-in-out infinite",
-                  willChange: "transform",
-                  boxShadow: "0 24px 60px rgba(0,0,0,0.3)",
+                  boxShadow: "0 16px 48px rgba(0,0,0,0.25)",
                 }}>
                   <Image
                     src="/assets/cabecera.png"
                     alt="Powerful Mom"
                     width={460}
                     height={520}
-                    sizes="(max-width:640px) 90vw, (max-width:768px) 45vw, 460px"
+                    sizes="(max-width:640px) 80vw, (max-width:768px) 45vw, 460px"
                     style={{ objectFit: "cover", objectPosition: "center top", width: "100%", height: "auto", display: "block" }}
                     priority
                   />
                   {/* Glow overlay sutil */}
                   <div style={{
                     position: "absolute", inset: 0,
-                    background: "linear-gradient(to bottom, transparent 60%, rgba(59,7,100,0.4) 100%)",
+                    background: "linear-gradient(to bottom, transparent 60%, rgba(59,7,100,0.35) 100%)",
                     pointerEvents: "none",
                   }} />
                 </div>
-
-                {/* Pulsos */}
-                {[0, 1.5].map(delay => (
-                  <div key={delay} style={{
-                    position: "absolute", inset: -24, borderRadius: 36,
-                    border: "1px solid rgba(219,39,119,0.18)",
-                    animation: `pulse-ring 4s ease-out ${delay}s infinite`,
-                    zIndex: 0, pointerEvents: "none",
-                  }} />
-                ))}
               </div>
             </div>
           </div>
@@ -207,9 +185,9 @@ export default function Hero() {
       <style>{`
         @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         @media (max-width:640px) {
-          .hero-main { padding: 0 !important; gap: 32px !important; }
-          .hero-left  { order: 2; }
-          .hero-right { order: 1; width: 100% !important; max-width: 300px; margin: 0 auto; }
+          .hero-main  { padding: 0 !important; gap: 28px !important; }
+          .hero-left  { order: 1; }
+          .hero-right { order: 2; width: 100% !important; max-width: 240px; margin: 0 auto; }
         }
       `}</style>
     </section>

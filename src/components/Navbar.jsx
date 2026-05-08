@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav style={{
+      <nav className="site-nav" style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
         padding: "12px 28px",
         display: "flex", alignItems: "center", justifyContent: "space-between",
@@ -92,8 +92,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div style={{
-          position: "fixed", top: 68, left: 0, right: 0, zIndex: 99,
+        <div className="mobile-menu" style={{
           background: "rgba(59,7,100,0.97)", backdropFilter: "blur(20px)",
           borderBottom: "1px solid rgba(255,255,255,0.1)",
           display: "flex", flexDirection: "column", padding: "16px 24px 24px",
@@ -125,7 +124,11 @@ export default function Navbar() {
 
       <style>{`
         @media (min-width: 641px) { .nav-mobile { display: none !important; } }
-        @media (max-width: 640px) { .nav-desktop { display: none !important; } }
+        @media (max-width: 640px) {
+          .nav-desktop { display: none !important; }
+          .site-nav { position: relative !important; top: auto !important; background: rgba(59,7,100,0.97) !important; backdrop-filter: blur(20px) !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; }
+          .mobile-menu { position: relative !important; top: auto !important; left: auto !important; right: auto !important; }
+        }
       `}</style>
     </>
   );
