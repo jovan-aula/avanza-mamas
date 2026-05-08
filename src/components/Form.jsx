@@ -24,7 +24,7 @@ export default function Form() {
         </h2>
 
         <p style={{ color: "rgba(26,0,48,0.45)", fontFamily: "Inter, sans-serif", fontSize: "0.95rem", marginBottom: 40 }}>
-          Un asesor te contactará en menos de 24 horas.
+          Nuestro equipo de reclutamiento te contactará pronto.
         </p>
 
         {/* Placeholder formulario */}

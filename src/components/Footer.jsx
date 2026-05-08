@@ -1,13 +1,6 @@
 "use client";
 import Image from "next/image";
-import { IconMapPin, IconPhone, IconMail, IconShield, IconChevronRight } from "./Icons";
-
-const links = [
-  { label: "Inicio", href: "#" },
-  { label: "Beneficios", href: "#beneficios" },
-  { label: "Testimonios", href: "#testimonios" },
-  { label: "Únete", href: "#formulario" },
-];
+import { IconMapPin, IconPhone, IconMail, IconShield } from "./Icons";
 
 const social = [
   {
@@ -30,6 +23,12 @@ const social = [
   },
 ];
 
+const contact = [
+  { Icon: IconMapPin, text: "Tijuana & Ensenada, BC" },
+  { Icon: IconPhone,  text: "+52 1 664 315 1820" },
+  { Icon: IconMail,   text: "rh@avanzacapital.mx" },
+];
+
 const maps = [
   {
     city: "Tijuana",
@@ -44,153 +43,86 @@ const maps = [
 export default function Footer() {
   return (
     <footer className="section-dark" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-      {/* Top gradient bar */}
       <div style={{ height: 2, background: "linear-gradient(90deg, #7C3AED, #A21CAF, #DB2777, #EC4899)" }} />
 
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "56px 28px 36px" }}>
+      <div style={{ maxWidth: 700, margin: "0 auto", padding: "56px 24px 36px", textAlign: "center" }}>
 
-        {/* === GRID PRINCIPAL 4 columnas === */}
-        <div className="footer-main">
-
-          {/* Col 1 — Brand */}
-          <div>
-            <div style={{ marginBottom: 16 }}>
-              <Image src="/assets/logo-blanco.png" alt="Avanza Capital" width={140} height={46} style={{ objectFit: "contain" }} />
-            </div>
-            <p style={{ color: "rgba(255,255,255,0.32)", fontFamily: "Inter, sans-serif", fontSize: "0.82rem", lineHeight: 1.75, marginBottom: 20 }}>
-              La agencia GNP más poderosa de Tijuana y Ensenada. Formando a las Powerful Moms del sector asegurador.
-            </p>
-            <div className="footer-social-row" style={{ display: "flex", gap: 8 }}>
-              {social.map(s => (
-                <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer"
-                  style={{
-                    width: 36, height: 36, borderRadius: "50%",
-                    background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    color: "rgba(255,255,255,0.38)", textDecoration: "none",
-                    transition: "all 0.25s ease",
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#EC4899"; e.currentTarget.style.color = "#EC4899"; e.currentTarget.style.background = "rgba(236,72,153,0.1)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; e.currentTarget.style.color = "rgba(255,255,255,0.38)"; e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
-                >
-                  {s.icon}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Col 2 — Navegación */}
-          <div className="footer-hide-mobile">
-            <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.7rem", color: "rgba(255,255,255,0.32)", letterSpacing: 3, textTransform: "uppercase", marginBottom: 18 }}>
-              Navegación
-            </div>
-            <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 10 }}>
-              {links.map(l => (
-                <li key={l.label}>
-                  <a href={l.href} style={{ color: "rgba(255,255,255,0.38)", fontFamily: "Inter, sans-serif", fontSize: "0.85rem", textDecoration: "none", display: "flex", alignItems: "center", gap: 6, transition: "color 0.2s" }}
-                    onMouseEnter={e => e.currentTarget.style.color = "white"}
-                    onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.38)"}
-                  >
-                    <IconChevronRight size={10} color="#A21CAF" />
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 3 — Contacto */}
-          <div>
-            <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.7rem", color: "rgba(255,255,255,0.32)", letterSpacing: 3, textTransform: "uppercase", marginBottom: 18 }}>
-              Contacto
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              {[
-                { Icon: IconMapPin, text: "Tijuana & Ensenada, BC" },
-                { Icon: IconPhone,  text: "+52 1 664 315 1820" },
-                { Icon: IconMail,   text: "rh@avanzacapital.mx" },
-              ].map(({ Icon, text }) => (
-                <div key={text} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                  <div style={{ flexShrink: 0, marginTop: 1 }}>
-                    <Icon size={13} color="rgba(162,28,175,0.65)" />
-                  </div>
-                  <span style={{ color: "rgba(255,255,255,0.32)", fontFamily: "Inter, sans-serif", fontSize: "0.82rem", lineHeight: 1.5 }}>{text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Col 4 — Campaña + GNP */}
-          <div className="footer-hide-mobile" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.7rem", color: "rgba(255,255,255,0.32)", letterSpacing: 3, textTransform: "uppercase", marginBottom: 4 }}>
-              Campaña
-            </div>
-            <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 14, padding: "16px 18px" }}>
-              <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 900, fontSize: "0.95rem", marginBottom: 6 }}>
-                <span className="gradient-text-light">#PowerfulMoms</span>
-              </div>
-              <p style={{ color: "rgba(255,255,255,0.26)", fontFamily: "Inter, sans-serif", fontSize: "0.76rem", lineHeight: 1.6, fontStyle: "italic" }}>
-                Se escribe mamá, pero se pronuncia Powerful Mom.
-              </p>
-            </div>
-            <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 12, padding: "12px 14px", display: "flex", alignItems: "center", gap: 10 }}>
-              <IconShield size={15} color="rgba(162,28,175,0.55)" />
-              <div>
-                <div style={{ color: "rgba(255,255,255,0.55)", fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.78rem" }}>Respaldados por GNP</div>
-                <div style={{ color: "rgba(255,255,255,0.2)", fontFamily: "Inter, sans-serif", fontSize: "0.68rem" }}>Aseguradora #1 de México</div>
-              </div>
-            </div>
-          </div>
+        {/* Logo */}
+        <div style={{ marginBottom: 16, display: "flex", justifyContent: "center" }}>
+          <Image src="/assets/logo-blanco.png" alt="Avanza Capital" width={160} height={50} style={{ objectFit: "contain" }} />
         </div>
 
-        {/* === MAPAS — oculto en mobile === */}
-        <div className="footer-hide-mobile" style={{
-          borderTop: "1px solid rgba(255,255,255,0.06)",
-          paddingTop: 32, marginBottom: 28,
+        {/* Tagline */}
+        <p style={{ color: "rgba(255,255,255,0.3)", fontFamily: "Inter, sans-serif", fontSize: "0.82rem", lineHeight: 1.75, marginBottom: 24, maxWidth: 380, margin: "0 auto 24px" }}>
+          La agencia GNP más poderosa de Tijuana y Ensenada.<br />
+          Formando a las <span style={{ color: "#F9A8D4" }}>Powerful Moms</span> del sector asegurador.
+        </p>
+
+        {/* Redes sociales */}
+        <div style={{ display: "flex", justifyContent: "center", gap: 10, marginBottom: 28 }}>
+          {social.map(s => (
+            <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer"
+              style={{
+                width: 38, height: 38, borderRadius: "50%",
+                background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                color: "rgba(255,255,255,0.38)", textDecoration: "none",
+                transition: "all 0.25s ease",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "#EC4899"; e.currentTarget.style.color = "#EC4899"; e.currentTarget.style.background = "rgba(236,72,153,0.1)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; e.currentTarget.style.color = "rgba(255,255,255,0.38)"; e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
+            >
+              {s.icon}
+            </a>
+          ))}
+        </div>
+
+        {/* Separador */}
+        <div style={{ width: 40, height: 1, background: "rgba(255,255,255,0.1)", margin: "0 auto 24px" }} />
+
+        {/* Contacto centrado */}
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, marginBottom: 32 }}>
+          {contact.map(({ Icon, text }) => (
+            <div key={text} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <Icon size={12} color="rgba(162,28,175,0.6)" />
+              <span style={{ color: "rgba(255,255,255,0.3)", fontFamily: "Inter, sans-serif", fontSize: "0.8rem" }}>{text}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Respaldo GNP */}
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: 8,
+          background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)",
+          borderRadius: 50, padding: "8px 18px", marginBottom: 36,
         }}>
-          <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.7rem", color: "rgba(255,255,255,0.3)", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
+          <IconShield size={13} color="rgba(162,28,175,0.55)" />
+          <span style={{ color: "rgba(255,255,255,0.35)", fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.72rem" }}>Respaldados por GNP · Aseguradora #1 de México</span>
+        </div>
+
+        {/* Mapas — solo desktop */}
+        <div className="footer-hide-mobile" style={{ marginBottom: 32 }}>
+          <div style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.65rem", color: "rgba(255,255,255,0.25)", letterSpacing: 3, textTransform: "uppercase", marginBottom: 14 }}>
             Encuéntranos
           </div>
-          <div className="footer-maps">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
             {maps.map(({ city, src }) => (
               <div key={city}>
-                <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }}>
-                  <IconMapPin size={11} color="rgba(162,28,175,0.6)" />
-                  <span style={{ color: "rgba(255,255,255,0.35)", fontFamily: "Montserrat, sans-serif", fontWeight: 600, fontSize: "0.75rem" }}>{city}</span>
-                </div>
+                <div style={{ color: "rgba(255,255,255,0.3)", fontFamily: "Montserrat, sans-serif", fontWeight: 600, fontSize: "0.72rem", marginBottom: 8 }}>{city}</div>
                 <div style={{ borderRadius: 10, overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
-                  <iframe
-                    src={src}
-                    width="100%"
-                    height="160"
-                    style={{ border: 0, display: "block" }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title={`Mapa ${city}`}
-                  />
+                  <iframe src={src} width="100%" height="140" style={{ border: 0, display: "block" }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" title={`Mapa ${city}`} />
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* === BOTTOM BAR === */}
-        <div style={{
-          borderTop: "1px solid rgba(255,255,255,0.05)",
-          paddingTop: 20,
-          display: "flex", flexWrap: "wrap", gap: 10,
-          justifyContent: "space-between", alignItems: "center",
-        }}>
-          <p style={{ color: "rgba(255,255,255,0.15)", fontFamily: "Inter, sans-serif", fontSize: "0.74rem" }}>
-            © {new Date().getFullYear()} Avanza Capital · Agencia GNP · Todos los derechos reservados.
-          </p>
-          <p style={{ color: "rgba(255,255,255,0.1)", fontFamily: "Inter, sans-serif", fontSize: "0.7rem" }}>
-            Tijuana · Ensenada · Baja California, México
-          </p>
-        </div>
-      </div>
+        {/* Bottom */}
+        <p style={{ color: "rgba(255,255,255,0.12)", fontFamily: "Inter, sans-serif", fontSize: "0.7rem" }}>
+          © {new Date().getFullYear()} Avanza Capital · Agencia GNP · Todos los derechos reservados.
+        </p>
 
+      </div>
     </footer>
   );
 }
