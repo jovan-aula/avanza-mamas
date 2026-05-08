@@ -156,13 +156,14 @@ export default function Testimonials() {
                   border: `3px solid ${t.color}66`,
                   boxShadow: `0 0 30px ${t.color}44`,
                   position: "relative",
+                  background: "rgba(255,255,255,0.03)",
                 }}
               >
                 <Image
                   src={t.image}
                   alt={t.name}
                   fill
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain", objectPosition: "center top", padding: "4px" }}
                 />
               </div>
               {/* Pulse ring */}
