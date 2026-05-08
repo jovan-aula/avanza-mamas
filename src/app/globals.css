@@ -68,13 +68,11 @@ body { font-family: 'Inter', sans-serif; background: #0a0010; overflow-x: hidden
 
 /* ─── BOTÓN CTA ──────────────────────────── */
 .btn-cta {
-  background: var(--grad);
-  background-size: 200% auto;
-  animation: shimmer 4s linear infinite;
-  box-shadow: 0 4px 20px rgba(219,39,119,0.4);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(135deg, #7C3AED 0%, #A21CAF 40%, #DB2777 75%, #EC4899 100%);
+  box-shadow: 0 4px 20px rgba(219,39,119,0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
-.btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(219,39,119,0.55); }
+.btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(219,39,119,0.6); filter: brightness(1.08); }
 .btn-cta:active { transform: translateY(0); }
 
 /* ─── REVEAL ON SCROLL ───────────────────── */

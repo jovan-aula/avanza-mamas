@@ -149,30 +149,15 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Thumbnails */}
-        <div style={{ display: "flex", justifyContent: "center", gap: 20, marginTop: 32 }}>
+        {/* Dots only */}
+        <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 28 }}>
           {testimonials.map((item, i) => (
             <button key={i} onClick={() => goTo(i)} style={{
-              background: "none", border: "none", padding: 0, cursor: "pointer",
-              display: "flex", flexDirection: "column", alignItems: "center", gap: 8,
-            }}>
-              <div style={{
-                width: 56, height: 56, borderRadius: "50%", overflow: "hidden",
-                position: "relative",
-                border: `2px solid ${i === active ? item.color : "rgba(255,255,255,0.1)"}`,
-                opacity: i === active ? 1 : 0.35,
-                transition: "all 0.3s ease",
-              }}>
-                <Image src={item.image} alt={item.name} fill style={{ objectFit: "cover", objectPosition: "center top" }} />
-              </div>
-              <span style={{
-                fontFamily: "Inter, sans-serif", fontSize: "0.7rem",
-                color: i === active ? "rgba(255,255,255,0.7)" : "rgba(255,255,255,0.2)",
-                transition: "color 0.3s",
-              }}>
-                {item.name.split(" ")[0]}
-              </span>
-            </button>
+              width: i === active ? 28 : 8, height: 8, borderRadius: 4,
+              background: i === active ? item.color : "rgba(255,255,255,0.15)",
+              border: "none", cursor: "pointer", padding: 0,
+              transition: "all 0.35s ease",
+            }} />
           ))}
         </div>
       </div>

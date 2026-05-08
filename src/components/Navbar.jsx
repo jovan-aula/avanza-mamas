@@ -24,8 +24,8 @@ export default function Navbar() {
       <Image
         src="/assets/logo-blanco.png"
         alt="Avanza Capital"
-        width={140}
-        height={44}
+        width={172}
+        height={54}
         style={{ objectFit: "contain" }}
       />
       <button
