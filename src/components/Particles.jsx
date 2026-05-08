@@ -17,7 +17,7 @@ export default function Particles() {
     resize();
     window.addEventListener("resize", resize);
 
-    const symbols = ["✦", "✿", "❀", "♡", "✨", "⋆", "·"];
+    const symbols = ["·", "–", "×", "+", "◦", "∘", "⟡"];
     const colors = ["#FF4B7C", "#A855F7", "#F9A8D4", "#FFD700", "#ffffff"];
 
     class Particle {
