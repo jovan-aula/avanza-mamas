@@ -1,6 +1,6 @@
 "use client";
 import Script from "next/script";
-import { IconBook, IconStar, IconTrendingUp, IconUsers, IconCar, IconCalendar } from "./Icons";
+import { IconBook, IconStar, IconTrendingUp, IconUsers, IconCar } from "./Icons";
 
 const requisitos = [
   { Icon: IconBook, label: "Carrera trunca o terminada" },
@@ -131,54 +131,6 @@ export default function Form() {
           />
         </div>
 
-        {/* Separador */}
-        <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 24 }}>
-          <div style={{ flex: 1, height: 1, background: "rgba(26,0,48,0.08)" }} />
-          <span style={{
-            fontFamily: "Inter, sans-serif", fontSize: "0.75rem",
-            color: "rgba(26,0,48,0.28)", letterSpacing: 1,
-          }}>
-            o si prefieres
-          </span>
-          <div style={{ flex: 1, height: 1, background: "rgba(26,0,48,0.08)" }} />
-        </div>
-
-        {/* CTA agenda entrevista */}
-        <div style={{ textAlign: "center" }}>
-          <a
-            href="#"
-            style={{
-              display: "inline-flex", alignItems: "center", gap: 9,
-              padding: "14px 28px", borderRadius: 50,
-              border: "1.5px solid rgba(124,58,237,0.25)",
-              fontFamily: "Montserrat, sans-serif", fontWeight: 700,
-              fontSize: "0.85rem", color: "#7C3AED",
-              textDecoration: "none", letterSpacing: 0.3,
-              transition: "all 0.25s ease",
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = "linear-gradient(135deg, #7C3AED, #DB2777)";
-              e.currentTarget.style.color = "white";
-              e.currentTarget.style.borderColor = "transparent";
-              e.currentTarget.style.boxShadow = "0 6px 20px rgba(124,58,237,0.25)";
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.color = "#7C3AED";
-              e.currentTarget.style.borderColor = "rgba(124,58,237,0.25)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >
-            <IconCalendar size={16} color="currentColor" />
-            Agenda una entrevista
-          </a>
-          <p style={{
-            fontFamily: "Inter, sans-serif", fontSize: "0.75rem",
-            color: "rgba(26,0,48,0.28)", marginTop: 10,
-          }}>
-            Habla directamente con nuestro equipo
-          </p>
-        </div>
 
       </div>
     </section>
