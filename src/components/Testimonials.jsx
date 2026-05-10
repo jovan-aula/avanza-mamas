@@ -76,8 +76,8 @@ export default function Testimonials() {
             fontFamily: "Montserrat, sans-serif", fontWeight: 900,
             fontSize: "clamp(1.6rem, 4vw, 3rem)", color: "white",
           }}>
-            De mamá a{" "}
-            <span className="gradient-text-light">Agente GNP</span>
+            Mamás que eligieron{" "}
+            <span className="gradient-text-light">también ser agentes</span>
           </h2>
         </div>
 
