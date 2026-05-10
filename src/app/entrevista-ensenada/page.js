@@ -1,0 +1,218 @@
+"use client";
+import Script from "next/script";
+
+const petalD = "M 0,0 C -9,-13 -7,-31 0,-43 C 7,-31 9,-13 0,0";
+const singlePetalD = "M 0,0 C -10,-10 -9,-28 0,-40 C 9,-28 10,-10 0,0";
+
+function FlowerSVG({ size, color, opacity, petals }) {
+  const step = Math.round(360 / petals);
+  const angles = Array.from({ length: petals }, (_, i) => i * step);
+  return (
+    <svg width={size} height={size} viewBox="-60 -60 120 120" fill="none" style={{ display: "block" }}>
+      <g stroke={color} strokeWidth="1.4" strokeLinecap="round" opacity={opacity}>
+        {angles.map((a) => <path key={a} d={petalD} transform={`rotate(${a})`} />)}
+        <circle cx="0" cy="0" r="5" strokeWidth="1.2" />
+      </g>
+    </svg>
+  );
+}
+
+function PetalSVG({ size, color, opacity, rotate = 0 }) {
+  return (
+    <svg width={size} height={size} viewBox="-20 -45 40 50" fill="none" style={{ display: "block" }}>
+      <path d={singlePetalD} stroke={color} strokeWidth="1.3" strokeLinecap="round"
+        opacity={opacity} transform={`rotate(${rotate})`} />
+    </svg>
+  );
+}
+
+const flowers = [
+  { type: "flower", size: 170, color: "#F9A8D4", opacity: 0.22, petals: 6, top: 40,   left: -60,  anim: "flowerFloat1 6s ease-in-out infinite" },
+  { type: "flower", size: 130, color: "#EC4899", opacity: 0.18, petals: 5, top: 80,   right: -50, anim: "flowerFloat2 8s ease-in-out infinite" },
+  { type: "petal",  size: 44,  color: "#DDD6FE", opacity: 0.25, rotate: -20, top: 280, right: 40, anim: "flowerFloat3 5s ease-in-out infinite 0.8s" },
+  { type: "flower", size: 150, color: "#DDD6FE", opacity: 0.18, petals: 5, top: 520,  left: -55,  anim: "flowerFloat2 7s ease-in-out infinite 0.5s" },
+  { type: "flower", size: 110, color: "#F9A8D4", opacity: 0.2,  petals: 6, top: 680,  right: -45, anim: "flowerFloat1 6.5s ease-in-out infinite 1.2s" },
+  { type: "petal",  size: 38,  color: "#EC4899", opacity: 0.22, rotate: 15, top: 820, left: 30,   anim: "flowerFloat3 5.5s ease-in-out infinite 2s" },
+  { type: "flower", size: 120, color: "#EC4899", opacity: 0.16, petals: 4, top: 1050, left: -40,  anim: "flowerFloat1 7.5s ease-in-out infinite 0.3s" },
+  { type: "flower", size: 95,  color: "#F9A8D4", opacity: 0.18, petals: 5, top: 1200, right: -35, anim: "flowerFloat2 6s ease-in-out infinite 1.5s" },
+  { type: "petal",  size: 32,  color: "#DDD6FE", opacity: 0.2,  rotate: -35, top: 1380, left: 60, anim: "flowerFloat3 4.8s ease-in-out infinite 1s" },
+];
+
+export default function Entrevista() {
+  return (
+    <>
+      <div style={{ position: "relative" }}>
+
+        {/* Flores de fondo — absolutas en toda la página */}
+        {flowers.map((f, i) => (
+          <div key={i} style={{
+            position: "absolute",
+            top: f.top ?? "auto",
+            bottom: f.bottom ?? "auto",
+            left: f.left ?? "auto",
+            right: f.right ?? "auto",
+            animation: f.anim,
+            zIndex: 0,
+            pointerEvents: "none",
+          }}>
+            {f.type === "flower"
+              ? <FlowerSVG size={f.size} color={f.color} opacity={f.opacity} petals={f.petals} />
+              : <PetalSVG  size={f.size} color={f.color} opacity={f.opacity} rotate={f.rotate} />
+            }
+          </div>
+        ))}
+
+        <main style={{
+          minHeight: "100vh",
+          background: "linear-gradient(150deg, #3B0764 0%, #6B21A8 45%, #9D174D 80%, #831843 100%)",
+          display: "flex", flexDirection: "column", alignItems: "center",
+          padding: "60px 20px 80px",
+          position: "relative", zIndex: 1,
+        }}>
+
+          {/* Logo / marca */}
+          <div style={{ marginBottom: 40, textAlign: "center" }}>
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)",
+              borderRadius: 50, padding: "8px 20px",
+            }}>
+              <span style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 900, fontSize: "0.9rem", color: "white", letterSpacing: 0.5 }}>
+                Avanza Capital
+              </span>
+              <span style={{ color: "rgba(255,255,255,0.25)", fontSize: 12 }}>·</span>
+              <span style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600, fontSize: "0.75rem", color: "#F9A8D4", letterSpacing: 1, textTransform: "uppercase" }}>
+                #PowerfulMoms
+              </span>
+            </div>
+          </div>
+
+          {/* Header */}
+          <div style={{ textAlign: "center", maxWidth: 560, marginBottom: 48 }}>
+
+            {/* Badges */}
+            <div style={{ display: "flex", justifyContent: "center", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: 7,
+                background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)",
+                borderRadius: 50, padding: "6px 16px",
+              }}>
+                <span style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.7rem", letterSpacing: 2, textTransform: "uppercase", color: "rgba(255,255,255,0.5)" }}>
+                  Último paso
+                </span>
+              </div>
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: 7,
+                background: "rgba(249,168,212,0.12)", border: "1px solid rgba(249,168,212,0.25)",
+                borderRadius: 50, padding: "6px 16px",
+              }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F9A8D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <span style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.7rem", letterSpacing: 2, textTransform: "uppercase", color: "#F9A8D4" }}>
+                  ¡Felicidades, calificas!
+                </span>
+              </div>
+            </div>
+
+            <h1 style={{
+              fontFamily: "Montserrat, sans-serif", fontWeight: 900,
+              fontSize: "clamp(1.8rem, 4.5vw, 3rem)", lineHeight: 1.15,
+              color: "white", marginBottom: 16,
+            }}>
+              Un paso más hacia
+              <br />
+              <span style={{
+                background: "linear-gradient(135deg, #fff 0%, #F9A8D4 40%, #EC4899 70%, #fff 100%)",
+                backgroundSize: "200% auto",
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+              }}>
+                tu nueva vida.
+              </span>
+            </h1>
+
+            <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "rgba(255,255,255,0.6)", lineHeight: 1.75 }}>
+              Agenda tu videollamada con nuestro equipo.
+              Es una conversación breve —{" "}
+              <span style={{ color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>sin compromiso</span>
+              {" "}— para conocerte y contarte todo sobre el programa.
+            </p>
+          </div>
+
+          {/* Calendario */}
+          <div style={{
+            width: "100%", maxWidth: 720,
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: 20, overflow: "hidden",
+          }}>
+            <iframe
+              src="https://crm.avanzacapital.mx/widget/booking/mrNx7JVYNsAHtCWo9yqK"
+              style={{ width: "100%", minHeight: 600, border: "none", display: "block" }}
+              id="mrNx7JVYNsAHtCWo9yqK_1778376997872"
+              scrolling="no"
+              title="Agenda tu videollamada — Avanza Capital Ensenada"
+              loading="eager"
+            />
+            <Script src="https://crm.avanzacapital.mx/js/form_embed.js" strategy="afterInteractive" />
+          </div>
+
+        </main>
+      </div>
+
+      {/* Footer minimalista */}
+      <footer style={{
+        background: "linear-gradient(150deg, #3B0764 0%, #6B21A8 45%, #9D174D 80%, #831843 100%)",
+        borderTop: "1px solid rgba(255,255,255,0.07)",
+        padding: "28px 20px",
+        textAlign: "center",
+      }}>
+        <div style={{ height: 2, background: "linear-gradient(90deg, #7C3AED, #A21CAF, #DB2777, #EC4899)", marginBottom: 24, borderRadius: 2 }} />
+        <p style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: "0.85rem", color: "white", marginBottom: 4 }}>
+          Avanza Capital
+        </p>
+        <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.75rem", color: "rgba(255,255,255,0.25)", marginBottom: 16 }}>
+          Agencia GNP · Ensenada, BC
+        </p>
+        <div style={{ display: "flex", justifyContent: "center", gap: 20, marginBottom: 20 }}>
+          {[
+            { label: "Instagram", href: "https://www.instagram.com/avanzacapitalseguros/" },
+            { label: "Facebook",  href: "https://www.facebook.com/AvanzaCapitalBrokers" },
+          ].map(s => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{
+              fontFamily: "Inter, sans-serif", fontSize: "0.75rem",
+              color: "rgba(255,255,255,0.3)", textDecoration: "none",
+              transition: "color 0.2s ease",
+            }}
+              onMouseEnter={e => e.currentTarget.style.color = "#F9A8D4"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.3)"}
+            >
+              {s.label}
+            </a>
+          ))}
+        </div>
+        <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.68rem", color: "rgba(255,255,255,0.12)" }}>
+          © {new Date().getFullYear()} Avanza Capital · Todos los derechos reservados.
+        </p>
+      </footer>
+
+      <style>{`
+        @keyframes flowerFloat1 {
+          0%,100% { transform: translateY(0px)   rotate(0deg);  }
+          30%      { transform: translateY(-20px) rotate(4deg);  }
+          60%      { transform: translateY(-8px)  rotate(-3deg); }
+        }
+        @keyframes flowerFloat2 {
+          0%,100% { transform: translateY(0px)   rotate(0deg);  }
+          40%      { transform: translateY(-16px) rotate(-5deg); }
+          70%      { transform: translateY(-5px)  rotate(3deg);  }
+        }
+        @keyframes flowerFloat3 {
+          0%,100% { transform: translateY(0px)   rotate(0deg);  }
+          25%      { transform: translateY(-24px) rotate(6deg);  }
+          55%      { transform: translateY(-10px) rotate(-4deg); }
+        }
+      `}</style>
+    </>
+  );
+}
