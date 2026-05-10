@@ -1,6 +1,5 @@
 "use client";
 import Script from "next/script";
-import Footer from "@/components/Footer";
 
 const petalD = "M 0,0 C -9,-13 -7,-31 0,-43 C 7,-31 9,-13 0,0";
 const singlePetalD = "M 0,0 C -10,-10 -9,-28 0,-40 C 9,-28 10,-10 0,0";
@@ -161,7 +160,41 @@ export default function Entrevista() {
         </main>
       </div>
 
-      <Footer />
+      {/* Footer minimalista */}
+      <footer style={{
+        background: "#0a0010",
+        borderTop: "1px solid rgba(255,255,255,0.07)",
+        padding: "28px 20px",
+        textAlign: "center",
+      }}>
+        <div style={{ height: 2, background: "linear-gradient(90deg, #7C3AED, #A21CAF, #DB2777, #EC4899)", marginBottom: 24, borderRadius: 2 }} />
+        <p style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: "0.85rem", color: "white", marginBottom: 4 }}>
+          Avanza Capital
+        </p>
+        <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.75rem", color: "rgba(255,255,255,0.25)", marginBottom: 16 }}>
+          Agencia GNP · Tijuana & Ensenada
+        </p>
+        <div style={{ display: "flex", justifyContent: "center", gap: 20, marginBottom: 20 }}>
+          {[
+            { label: "Instagram", href: "https://www.instagram.com/avanzacapitalseguros/" },
+            { label: "Facebook",  href: "https://www.facebook.com/AvanzaCapitalBrokers" },
+          ].map(s => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{
+              fontFamily: "Inter, sans-serif", fontSize: "0.75rem",
+              color: "rgba(255,255,255,0.3)", textDecoration: "none",
+              transition: "color 0.2s ease",
+            }}
+              onMouseEnter={e => e.currentTarget.style.color = "#F9A8D4"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.3)"}
+            >
+              {s.label}
+            </a>
+          ))}
+        </div>
+        <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.68rem", color: "rgba(255,255,255,0.12)" }}>
+          © {new Date().getFullYear()} Avanza Capital · Todos los derechos reservados.
+        </p>
+      </footer>
 
       <style>{`
         @keyframes flowerFloat1 {
