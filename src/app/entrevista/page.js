@@ -3,6 +3,33 @@ import Script from "next/script";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 
+const petalD = "M 0,0 C -9,-13 -7,-31 0,-43 C 7,-31 9,-13 0,0";
+const singlePetalD = "M 0,0 C -10,-10 -9,-28 0,-40 C 9,-28 10,-10 0,0";
+
+function FlowerSVG({ size, color, opacity, petals, style }) {
+  const step = Math.round(360 / petals);
+  const angles = Array.from({ length: petals }, (_, i) => i * step);
+  return (
+    <svg width={size} height={size} viewBox="-60 -60 120 120" fill="none"
+      style={{ position: "absolute", pointerEvents: "none", ...style }}>
+      <g stroke={color} strokeWidth="1.4" strokeLinecap="round" opacity={opacity}>
+        {angles.map((a) => <path key={a} d={petalD} transform={`rotate(${a})`} />)}
+        <circle cx="0" cy="0" r="5" strokeWidth="1.2" />
+      </g>
+    </svg>
+  );
+}
+
+function PetalSVG({ size, color, opacity, rotate = 0, style }) {
+  return (
+    <svg width={size} height={size} viewBox="-20 -45 40 50" fill="none"
+      style={{ position: "absolute", pointerEvents: "none", ...style }}>
+      <path d={singlePetalD} stroke={color} strokeWidth="1.3" strokeLinecap="round"
+        opacity={opacity} transform={`rotate(${rotate})`} />
+    </svg>
+  );
+}
+
 export default function Entrevista() {
   return (
     <main style={{
@@ -26,6 +53,44 @@ export default function Entrevista() {
         background: "radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%)",
         pointerEvents: "none",
       }} />
+
+      {/* ── Flores decorativas ── */}
+      <div style={{ animation: "flowerFloat1 6s ease-in-out infinite" }}>
+        <FlowerSVG size={160} color="#F9A8D4" opacity={0.18} petals={6} style={{ position: "fixed", top: 40, left: -50 }} />
+      </div>
+      <div style={{ animation: "flowerFloat2 8s ease-in-out infinite" }}>
+        <FlowerSVG size={120} color="#EC4899" opacity={0.14} petals={5} style={{ position: "fixed", top: 120, right: -40 }} />
+      </div>
+      <div style={{ animation: "flowerFloat3 5s ease-in-out infinite" }}>
+        <FlowerSVG size={90} color="#DDD6FE" opacity={0.16} petals={5} style={{ position: "fixed", bottom: 200, left: 10 }} />
+      </div>
+      <div style={{ animation: "flowerFloat1 7s ease-in-out infinite 1s" }}>
+        <FlowerSVG size={70} color="#F9A8D4" opacity={0.13} petals={4} style={{ position: "fixed", bottom: 300, right: 20 }} />
+      </div>
+      <div style={{ animation: "flowerFloat2 5.5s ease-in-out infinite 0.5s" }}>
+        <PetalSVG size={44} color="#F9A8D4" opacity={0.2} rotate={20} style={{ position: "fixed", top: 280, left: 60 }} />
+      </div>
+      <div style={{ animation: "flowerFloat3 6s ease-in-out infinite 2s" }}>
+        <PetalSVG size={34} color="#DDD6FE" opacity={0.16} rotate={-30} style={{ position: "fixed", top: 200, right: 70 }} />
+      </div>
+
+      <style>{`
+        @keyframes flowerFloat1 {
+          0%,100% { transform: translateY(0px) rotate(0deg); }
+          30%      { transform: translateY(-20px) rotate(4deg); }
+          60%      { transform: translateY(-8px) rotate(-3deg); }
+        }
+        @keyframes flowerFloat2 {
+          0%,100% { transform: translateY(0px) rotate(0deg); }
+          40%      { transform: translateY(-16px) rotate(-5deg); }
+          70%      { transform: translateY(-5px) rotate(3deg); }
+        }
+        @keyframes flowerFloat3 {
+          0%,100% { transform: translateY(0px) rotate(0deg); }
+          25%      { transform: translateY(-24px) rotate(6deg); }
+          55%      { transform: translateY(-10px) rotate(-4deg); }
+        }
+      `}</style>
 
       {/* Logo / marca */}
       <div style={{ marginBottom: 40, textAlign: "center" }}>
