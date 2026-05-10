@@ -70,14 +70,14 @@ export default function Testimonials() {
             fontSize: 11, letterSpacing: 4, textTransform: "uppercase",
             color: "rgba(255,255,255,0.4)", marginBottom: 14,
           }}>
-            Historias reales
+            Agentes de Seguros GNP · Historias reales
           </div>
           <h2 style={{
             fontFamily: "Montserrat, sans-serif", fontWeight: 900,
             fontSize: "clamp(1.6rem, 4vw, 3rem)", color: "white",
           }}>
-            Ellas ya son{" "}
-            <span className="gradient-text-light">Powerful Moms</span>
+            De mamá a{" "}
+            <span className="gradient-text-light">Agente GNP</span>
           </h2>
         </div>
 
