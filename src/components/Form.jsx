@@ -1,4 +1,5 @@
 "use client";
+import Script from "next/script";
 import { IconBook, IconStar, IconTrendingUp, IconUsers, IconCar, IconCalendar } from "./Icons";
 
 const requisitos = [
@@ -104,29 +105,30 @@ export default function Form() {
           </div>
         </div>
 
-        {/* Formulario placeholder */}
-        <div style={{
-          background: "rgba(124,58,237,0.04)",
-          border: "2px dashed rgba(124,58,237,0.18)",
-          borderRadius: 20, padding: "60px 40px",
-          display: "flex", flexDirection: "column", alignItems: "center", gap: 12,
-          marginBottom: 28,
-        }}>
-          <div style={{
-            width: 48, height: 48, borderRadius: 13,
-            background: "linear-gradient(135deg, #7C3AED, #DB2777)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-          }}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6M9 13h6M9 17h4"/>
-            </svg>
-          </div>
-          <p style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: "0.95rem", color: "#1a0030", margin: 0 }}>
-            Formulario pendiente
-          </p>
-          <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.82rem", color: "rgba(26,0,48,0.35)", margin: 0 }}>
-            Próximamente disponible aquí.
-          </p>
+        {/* Formulario CRM */}
+        <div style={{ width: "100%", minHeight: 953, marginBottom: 28 }}>
+          <iframe
+            src="https://crm.avanzacapital.mx/widget/form/dFyEin2X1LiYDQMJHrgJ"
+            style={{ width: "100%", height: 953, border: "none", borderRadius: 12, display: "block" }}
+            id="inline-dFyEin2X1LiYDQMJHrgJ"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="RECLUTAMIENTO MAYO 2026 MOM"
+            data-height="953"
+            data-layout-iframe-id="inline-dFyEin2X1LiYDQMJHrgJ"
+            data-form-id="dFyEin2X1LiYDQMJHrgJ"
+            title="RECLUTAMIENTO MAYO 2026 MOM"
+            loading="eager"
+          />
+          <Script
+            src="https://crm.avanzacapital.mx/js/form_embed.js"
+            strategy="afterInteractive"
+          />
         </div>
 
         {/* Separador */}
