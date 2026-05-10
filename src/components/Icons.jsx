@@ -97,3 +97,21 @@ export const IconArrowDown = ({ size = 16, color = "currentColor" }) => (
     <polyline points="19 12 12 19 5 12" />
   </svg>
 );
+
+export const IconCar = ({ size = 20, color = "currentColor" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 11l1.5-4.5h11L19 11" />
+    <rect x="2" y="11" width="20" height="7" rx="2" />
+    <circle cx="7" cy="18" r="2" />
+    <circle cx="17" cy="18" r="2" />
+    <path d="M2 15h20" />
+  </svg>
+);
+
+export const IconCalendar = ({ size = 20, color = "currentColor" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2" />
+    <path d="M16 2v4M8 2v4M3 10h18" />
+    <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" />
+  </svg>
+);
