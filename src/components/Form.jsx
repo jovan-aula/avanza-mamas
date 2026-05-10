@@ -15,11 +15,11 @@ const plus = [
 
 export default function Form() {
   return (
-    <section id="formulario" className="section-white" style={{ padding: "80px 20px 100px", position: "relative", zIndex: 1 }}>
+    <section id="formulario" className="section-white" style={{ padding: "52px 20px 80px", position: "relative", zIndex: 1 }}>
       <div style={{ maxWidth: 580, margin: "0 auto" }}>
 
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: 48 }}>
+        <div style={{ textAlign: "center", marginBottom: 24 }}>
           <div style={{
             display: "inline-block",
             background: "linear-gradient(135deg, #7C3AED, #DB2777)",
@@ -48,7 +48,7 @@ export default function Form() {
         </div>
 
         {/* Requisitos */}
-        <div style={{ marginBottom: 44 }}>
+        <div style={{ marginBottom: 28 }}>
           <p style={{
             fontFamily: "Montserrat, sans-serif", fontWeight: 700,
             fontSize: "0.72rem", letterSpacing: 3, textTransform: "uppercase",
