@@ -162,7 +162,7 @@ export default function Entrevista() {
 
       {/* Footer minimalista */}
       <footer style={{
-        background: "#0a0010",
+        background: "linear-gradient(150deg, #3B0764 0%, #6B21A8 45%, #9D174D 80%, #831843 100%)",
         borderTop: "1px solid rgba(255,255,255,0.07)",
         padding: "28px 20px",
         textAlign: "center",
