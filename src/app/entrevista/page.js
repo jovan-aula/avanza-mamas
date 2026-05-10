@@ -54,24 +54,43 @@ export default function Entrevista() {
         pointerEvents: "none",
       }} />
 
-      {/* ── Flores decorativas ── */}
-      <div style={{ animation: "flowerFloat1 6s ease-in-out infinite" }}>
-        <FlowerSVG size={160} color="#F9A8D4" opacity={0.18} petals={6} style={{ position: "fixed", top: 40, left: -50 }} />
+      {/* ── Flores decorativas — fondo de toda la página ── */}
+
+      {/* Top izquierda */}
+      <div style={{ position: "absolute", top: 60, left: -30, animation: "flowerFloat1 6s ease-in-out infinite", zIndex: 0 }}>
+        <FlowerSVG size={170} color="#F9A8D4" opacity={0.2} petals={6} style={{}} />
       </div>
-      <div style={{ animation: "flowerFloat2 8s ease-in-out infinite" }}>
-        <FlowerSVG size={120} color="#EC4899" opacity={0.14} petals={5} style={{ position: "fixed", top: 120, right: -40 }} />
+      {/* Top derecha */}
+      <div style={{ position: "absolute", top: 100, right: -40, animation: "flowerFloat2 8s ease-in-out infinite", zIndex: 0 }}>
+        <FlowerSVG size={130} color="#EC4899" opacity={0.16} petals={5} style={{}} />
       </div>
-      <div style={{ animation: "flowerFloat3 5s ease-in-out infinite" }}>
-        <FlowerSVG size={90} color="#DDD6FE" opacity={0.16} petals={5} style={{ position: "fixed", bottom: 200, left: 10 }} />
+      {/* Pétalo top derecha */}
+      <div style={{ position: "absolute", top: 260, right: 60, animation: "flowerFloat3 5s ease-in-out infinite 0.8s", zIndex: 0 }}>
+        <PetalSVG size={44} color="#DDD6FE" opacity={0.2} rotate={-20} style={{}} />
       </div>
-      <div style={{ animation: "flowerFloat1 7s ease-in-out infinite 1s" }}>
-        <FlowerSVG size={70} color="#F9A8D4" opacity={0.13} petals={4} style={{ position: "fixed", bottom: 300, right: 20 }} />
+      {/* Centro izquierda — detrás del calendario */}
+      <div style={{ position: "absolute", top: "38%", left: -50, animation: "flowerFloat2 7s ease-in-out infinite 0.5s", zIndex: 0 }}>
+        <FlowerSVG size={150} color="#DDD6FE" opacity={0.15} petals={5} style={{}} />
       </div>
-      <div style={{ animation: "flowerFloat2 5.5s ease-in-out infinite 0.5s" }}>
-        <PetalSVG size={44} color="#F9A8D4" opacity={0.2} rotate={20} style={{ position: "fixed", top: 280, left: 60 }} />
+      {/* Centro derecha — detrás del calendario */}
+      <div style={{ position: "absolute", top: "45%", right: -35, animation: "flowerFloat1 6.5s ease-in-out infinite 1.2s", zIndex: 0 }}>
+        <FlowerSVG size={110} color="#F9A8D4" opacity={0.17} petals={6} style={{}} />
       </div>
-      <div style={{ animation: "flowerFloat3 6s ease-in-out infinite 2s" }}>
-        <PetalSVG size={34} color="#DDD6FE" opacity={0.16} rotate={-30} style={{ position: "fixed", top: 200, right: 70 }} />
+      {/* Centro pétalo izquierda */}
+      <div style={{ position: "absolute", top: "55%", left: 40, animation: "flowerFloat3 5.5s ease-in-out infinite 2s", zIndex: 0 }}>
+        <PetalSVG size={38} color="#EC4899" opacity={0.18} rotate={15} style={{}} />
+      </div>
+      {/* Bottom izquierda */}
+      <div style={{ position: "absolute", bottom: 220, left: -20, animation: "flowerFloat1 7.5s ease-in-out infinite 0.3s", zIndex: 0 }}>
+        <FlowerSVG size={120} color="#EC4899" opacity={0.14} petals={4} style={{}} />
+      </div>
+      {/* Bottom derecha */}
+      <div style={{ position: "absolute", bottom: 180, right: -30, animation: "flowerFloat2 6s ease-in-out infinite 1.5s", zIndex: 0 }}>
+        <FlowerSVG size={90} color="#F9A8D4" opacity={0.16} petals={5} style={{}} />
+      </div>
+      {/* Bottom pétalo */}
+      <div style={{ position: "absolute", bottom: 120, left: 80, animation: "flowerFloat3 4.8s ease-in-out infinite 1s", zIndex: 0 }}>
+        <PetalSVG size={32} color="#DDD6FE" opacity={0.18} rotate={-35} style={{}} />
       </div>
 
       <style>{`
@@ -93,7 +112,7 @@ export default function Entrevista() {
       `}</style>
 
       {/* Logo / marca */}
-      <div style={{ marginBottom: 40, textAlign: "center" }}>
+      <div style={{ marginBottom: 40, textAlign: "center", position: "relative", zIndex: 1 }}>
         <div style={{
           display: "inline-flex", alignItems: "center", gap: 8,
           background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)",
@@ -117,7 +136,7 @@ export default function Entrevista() {
       </div>
 
       {/* Header */}
-      <div style={{ textAlign: "center", maxWidth: 560, marginBottom: 48 }}>
+      <div style={{ textAlign: "center", maxWidth: 560, marginBottom: 48, position: "relative", zIndex: 1 }}>
 
         {/* Badges */}
         <div style={{ display: "flex", justifyContent: "center", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
@@ -189,6 +208,7 @@ export default function Entrevista() {
         background: "rgba(255,255,255,0.04)",
         border: "1px solid rgba(255,255,255,0.1)",
         borderRadius: 20, overflow: "hidden",
+        position: "relative", zIndex: 1,
       }}>
         <iframe
           src="https://crm.avanzacapital.mx/widget/booking/VVbuahuUue9CU9MvtlyT"
