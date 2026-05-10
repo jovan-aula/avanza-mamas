@@ -1,6 +1,7 @@
 "use client";
 import Script from "next/script";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 
 export default function Entrevista() {
   return (
@@ -53,22 +54,37 @@ export default function Entrevista() {
       {/* Header */}
       <div style={{ textAlign: "center", maxWidth: 560, marginBottom: 48 }}>
 
-        {/* Badge */}
-        <div style={{
-          display: "inline-flex", alignItems: "center", gap: 7,
-          background: "rgba(249,168,212,0.12)", border: "1px solid rgba(249,168,212,0.25)",
-          borderRadius: 50, padding: "6px 16px", marginBottom: 24,
-        }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F9A8D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
-          </svg>
-          <span style={{
-            fontFamily: "Montserrat, sans-serif", fontWeight: 700,
-            fontSize: "0.7rem", letterSpacing: 2, textTransform: "uppercase", color: "#F9A8D4",
+        {/* Badges */}
+        <div style={{ display: "flex", justifyContent: "center", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 7,
+            background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)",
+            borderRadius: 50, padding: "6px 16px",
           }}>
-            ¡Felicidades, calificas!
-          </span>
+            <span style={{
+              fontFamily: "Montserrat, sans-serif", fontWeight: 700,
+              fontSize: "0.7rem", letterSpacing: 2, textTransform: "uppercase",
+              color: "rgba(255,255,255,0.5)",
+            }}>
+              Último paso
+            </span>
+          </div>
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 7,
+            background: "rgba(249,168,212,0.12)", border: "1px solid rgba(249,168,212,0.25)",
+            borderRadius: 50, padding: "6px 16px",
+          }}>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F9A8D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span style={{
+              fontFamily: "Montserrat, sans-serif", fontWeight: 700,
+              fontSize: "0.7rem", letterSpacing: 2, textTransform: "uppercase", color: "#F9A8D4",
+            }}>
+              ¡Felicidades, calificas!
+            </span>
+          </div>
         </div>
 
         <h1 style={{
@@ -123,14 +139,7 @@ export default function Entrevista() {
         />
       </div>
 
-      {/* Pie de página mínimo */}
-      <p style={{
-        fontFamily: "Inter, sans-serif", fontSize: "0.75rem",
-        color: "rgba(255,255,255,0.2)", marginTop: 36, textAlign: "center",
-      }}>
-        © {new Date().getFullYear()} Avanza Capital · GNP Agentes
-      </p>
-
     </main>
+    <Footer />
   );
 }
