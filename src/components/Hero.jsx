@@ -159,38 +159,53 @@ export default function Hero() {
 
             {/* RIGHT — Imagen con flores decorativas */}
             <div className="hero-right">
-              <div style={{ position: "relative", width: "100%", maxWidth: 460 }}>
+              <div className="hero-img-wrap" style={{ position: "relative", width: "100%", maxWidth: 380 }}>
 
                 {/* ── Flores decorativas SVG ── */}
 
-                {/* Flor grande — arriba a la derecha */}
-                <div style={{ position: "absolute", top: -55, right: -35, animation: "flowerFloat1 7s ease-in-out infinite", zIndex: 0 }}>
-                  <FlowerSVG size={128} color="#F9A8D4" opacity={0.55} petals={6} style={{}} />
+                {/* Flor XL — arriba derecha */}
+                <div style={{ position: "absolute", top: -75, right: -55, animation: "flowerFloat1 5s ease-in-out infinite", zIndex: 0 }}>
+                  <FlowerSVG size={180} color="#F9A8D4" opacity={0.6} petals={6} style={{}} />
                 </div>
 
-                {/* Flor mediana — abajo izquierda */}
-                <div style={{ position: "absolute", bottom: -30, left: -35, animation: "flowerFloat2 9s ease-in-out infinite", zIndex: 0 }}>
-                  <FlowerSVG size={88} color="#EC4899" opacity={0.38} petals={5} style={{}} />
+                {/* Flor grande — abajo izquierda */}
+                <div style={{ position: "absolute", bottom: -55, left: -55, animation: "flowerFloat2 6.5s ease-in-out infinite", zIndex: 0 }}>
+                  <FlowerSVG size={145} color="#EC4899" opacity={0.45} petals={5} style={{}} />
                 </div>
 
-                {/* Flor pequeña — arriba izquierda */}
-                <div style={{ position: "absolute", top: 50, left: -45, animation: "flowerFloat3 6s ease-in-out infinite", zIndex: 0 }}>
-                  <FlowerSVG size={54} color="#DDD6FE" opacity={0.48} petals={5} style={{}} />
+                {/* Flor mediana — arriba izquierda */}
+                <div style={{ position: "absolute", top: 30, left: -65, animation: "flowerFloat3 4.5s ease-in-out infinite", zIndex: 0 }}>
+                  <FlowerSVG size={100} color="#DDD6FE" opacity={0.52} petals={5} style={{}} />
                 </div>
 
-                {/* Flor mini — abajo derecha */}
-                <div style={{ position: "absolute", bottom: 90, right: -28, animation: "flowerFloat2 8s ease-in-out infinite 1.5s", zIndex: 0 }}>
-                  <FlowerSVG size={40} color="#F9A8D4" opacity={0.4} petals={4} style={{}} />
+                {/* Flor mediana — abajo derecha */}
+                <div style={{ position: "absolute", bottom: 60, right: -50, animation: "flowerFloat1 7s ease-in-out infinite 1s", zIndex: 0 }}>
+                  <FlowerSVG size={90} color="#F9A8D4" opacity={0.45} petals={4} style={{}} />
                 </div>
 
-                {/* Pétalo suelto — parte superior */}
-                <div style={{ position: "absolute", top: 8, right: 55, animation: "flowerFloat1 5s ease-in-out infinite 0.8s", zIndex: 0 }}>
-                  <PetalSVG size={30} color="#F9A8D4" opacity={0.32} rotate={25} style={{}} />
+                {/* Flor pequeña — centro derecha */}
+                <div style={{ position: "absolute", top: "45%", right: -40, animation: "flowerFloat2 5.5s ease-in-out infinite 0.5s", zIndex: 0 }}>
+                  <FlowerSVG size={62} color="#DDD6FE" opacity={0.4} petals={6} style={{}} />
                 </div>
 
-                {/* Pétalo suelto — parte inferior izquierda */}
-                <div style={{ position: "absolute", bottom: 38, left: 18, animation: "flowerFloat3 6.5s ease-in-out infinite 2s", zIndex: 0 }}>
-                  <PetalSVG size={24} color="#DDD6FE" opacity={0.28} rotate={-20} style={{}} />
+                {/* Flor pequeña — centro izquierda baja */}
+                <div style={{ position: "absolute", bottom: 170, left: -38, animation: "flowerFloat3 6s ease-in-out infinite 1.8s", zIndex: 0 }}>
+                  <FlowerSVG size={55} color="#EC4899" opacity={0.35} petals={5} style={{}} />
+                </div>
+
+                {/* Pétalo suelto — superior */}
+                <div style={{ position: "absolute", top: -10, right: 70, animation: "flowerFloat1 4s ease-in-out infinite 0.8s", zIndex: 0 }}>
+                  <PetalSVG size={42} color="#F9A8D4" opacity={0.38} rotate={30} style={{}} />
+                </div>
+
+                {/* Pétalo suelto — inferior izquierda */}
+                <div style={{ position: "absolute", bottom: 20, left: 25, animation: "flowerFloat3 5s ease-in-out infinite 2.2s", zIndex: 0 }}>
+                  <PetalSVG size={34} color="#DDD6FE" opacity={0.32} rotate={-25} style={{}} />
+                </div>
+
+                {/* Pétalo suelto — medio derecha */}
+                <div style={{ position: "absolute", top: "30%", right: 10, animation: "flowerFloat2 4.8s ease-in-out infinite 1.2s", zIndex: 0 }}>
+                  <PetalSVG size={28} color="#EC4899" opacity={0.3} rotate={15} style={{}} />
                 </div>
 
                 {/* Imagen rectangular */}
@@ -205,9 +220,9 @@ export default function Hero() {
                   <Image
                     src="/assets/cabecera.png"
                     alt="Powerful Mom"
-                    width={460}
-                    height={520}
-                    sizes="(max-width:640px) 80vw, (max-width:768px) 45vw, 460px"
+                    width={380}
+                    height={430}
+                    sizes="(max-width:640px) 80vw, (max-width:768px) 40vw, 380px"
                     style={{ objectFit: "cover", objectPosition: "center top", width: "100%", height: "auto", display: "block" }}
                     priority
                   />
@@ -252,14 +267,31 @@ export default function Hero() {
       </div>
 
       <style>{`
-        @keyframes marquee     { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        @keyframes flowerFloat1 { 0%, 100% { transform: translateY(0px);   } 50% { transform: translateY(-13px); } }
-        @keyframes flowerFloat2 { 0%, 100% { transform: translateY(0px);   } 50% { transform: translateY(-8px);  } }
-        @keyframes flowerFloat3 { 0%, 100% { transform: translateY(0px);   } 50% { transform: translateY(-17px); } }
+        @keyframes marquee      { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @keyframes flowerFloat1 {
+          0%   { transform: translateY(0px)   rotate(0deg);   }
+          30%  { transform: translateY(-22px) rotate(4deg);   }
+          60%  { transform: translateY(-10px) rotate(-3deg);  }
+          100% { transform: translateY(0px)   rotate(0deg);   }
+        }
+        @keyframes flowerFloat2 {
+          0%   { transform: translateY(0px)   rotate(0deg);   }
+          40%  { transform: translateY(-18px) rotate(-5deg);  }
+          70%  { transform: translateY(-6px)  rotate(3deg);   }
+          100% { transform: translateY(0px)   rotate(0deg);   }
+        }
+        @keyframes flowerFloat3 {
+          0%   { transform: translateY(0px)   rotate(0deg);   }
+          25%  { transform: translateY(-26px) rotate(6deg);   }
+          55%  { transform: translateY(-12px) rotate(-4deg);  }
+          100% { transform: translateY(0px)   rotate(0deg);   }
+        }
+        .hero-img-wrap { max-width: 380px; }
         @media (max-width:640px) {
-          .hero-main  { padding: 0 !important; gap: 28px !important; }
-          .hero-left  { order: 1; }
-          .hero-right { order: 2; width: 100% !important; max-width: 240px; margin: 0 auto; }
+          .hero-main    { padding: 0 !important; gap: 28px !important; }
+          .hero-left    { order: 1; }
+          .hero-right   { order: 2; width: 100% !important; max-width: 240px; margin: 0 auto; }
+          .hero-img-wrap { max-width: 240px !important; }
         }
       `}</style>
     </section>
